@@ -1,0 +1,27 @@
+<html>
+<head>
+<script type="text/javascript" src="chain.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+chain(
+	doStuff, ["a","b", function(){
+		console.log("första callback");
+	}],
+	doStuff, ["b", "a", function(){
+		console.log("andra callbacken");
+	}]
+);
+
+}
+
+function doStuff(a, b, callback){
+	console.log(a+b);
+	callback();
+}
+</script>
+</head>
+
+<body>
+</body>
+
+</html>
