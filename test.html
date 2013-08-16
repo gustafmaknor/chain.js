@@ -9,6 +9,9 @@ chain(
 	}],
 	doStuff, ["b", "a", function(data){
 		console.log("andra callbacken"+data);
+	}],
+	doStuff, ["c", "a", function(data){
+		console.log("tredje callbacken"+data);
 	}], function(){
 		console.log("Chain done");
 
@@ -21,6 +24,7 @@ function doStuff(a, b, callback){
 	console.log(a+b);
 	callback("hej");
 }
+
 </script>
 </head>
 
