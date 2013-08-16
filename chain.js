@@ -2,15 +2,10 @@ var chain=function(){
 
 	var callback = (arguments.length%2==0)?null:
 		Array.prototype.splice.call(arguments, arguments.length-1)[0];
-
-		alert(callback)
 	var serie=[];
 	var c=0;
-
 	//Build functions
 	for(var i=0;i<arguments.length;i=i+2){
-
-		serie[c]={};
 		var fn=arguments[i];
 		var arg=arguments[i+1];
 		fn.curry=function(arg){
@@ -20,9 +15,10 @@ var chain=function(){
 				return m.apply(this, a);
 			}
 		}
-
-		serie[c].cb=arg.splice(arg.length-1)[0];
-		serie[c].fn=fn.curry(arg);
+		serie[c]={
+			cb:arg.splice(arg.length-1)[0],
+			fn:fn.curry(arg)
+		}
 		c++;
 	}
 
