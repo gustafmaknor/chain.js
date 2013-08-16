@@ -7,16 +7,19 @@ chain(
 	doStuff, ["a","b", function(){
 		console.log("första callback");
 	}],
-	doStuff, ["b", "a", function(){
-		console.log("andra callbacken");
-	}]
+	doStuff, ["b", "a", function(data){
+		console.log("andra callbacken"+data);
+	}], function(){
+		console.log("Chain done");
+
+	}
 );
 
 }
 
 function doStuff(a, b, callback){
 	console.log(a+b);
-	callback();
+	callback("hej");
 }
 </script>
 </head>
