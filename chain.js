@@ -28,7 +28,9 @@ var chain=function(){
 		var cb=serie[i].cb;
 		serie[i].cb=(i<(serie.length-1))?(function(i, cb){
 			return function(arguments){
-				cb.call(this, arguments);
+				if(ca){
+					cb.call(this, arguments);
+				}
 				serie[i+1].fn.call(serie[i+1].fn,serie[i+1].cb);
 			}
 		})(i, cb)
