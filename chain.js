@@ -35,7 +35,9 @@ var chain=function(){
 		:(function(i, cb){
 			return function(arguments){
 				cb.call(this, arguments);
-				callback.call();
+				if(callback){
+					callback.call();
+				}
 			}
 		})(callback,cb);
 	}
