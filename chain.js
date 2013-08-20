@@ -28,7 +28,7 @@ var chain=function(){
 		var cb=serie[i].cb;
 		serie[i].cb=(i<(serie.length-1))?(function(i, cb){
 			return function(arguments){
-				if(ca){
+				if(cb){ //if there is a callback
 					cb.call(this, arguments);
 				}
 				serie[i+1].fn.call(serie[i+1].fn,serie[i+1].cb);
